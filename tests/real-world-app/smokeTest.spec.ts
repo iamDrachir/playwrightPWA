@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { SignInAndSignUpPage } from '../../_objects/real-world-app/signinAndSignup';
+import { TransactionsView } from '../../_objects/real-world-app/transactionsView';
 import { faker } from '@faker-js/faker'
 
 test('Real World App Smoketest', async ({ page }) => {
@@ -32,6 +33,16 @@ test('Real World App Smoketest', async ({ page }) => {
     await navigateTo.createBankAccount(`${randomFirstName} ${randomLastName}`, '123456789', '987654321')
     await page.getByText('Save').click()
     await page.getByText('Done').click()
+  })
+
+  await test.step('Request for an amount from a friend', async() => {
+    const navigateTransationsView = new TransactionsView(page)
+    await navigateTransationsView.friendsRequest('Edgar Johns', '400', 'Help on school tuition fee')
+  })
+
+  await test.step('Request for an amount from a friend', async() => {
+    const navigateTransationsView = new TransactionsView(page)
+    await navigateTransationsView.friendsPay('Edgar Johns', '400', 'Help on school tuition fee')
   })
 
 });
