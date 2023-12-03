@@ -18,6 +18,7 @@ export class TransactionsView {
      * @param requestNote is the description of the amount being requested
      */
     async friendsRequest(accountName: string, requestAmount: string, requestNote: string) {
+        //await this.page.getByText('Home').click()
         await this.page.locator('a[data-test="nav-contacts-tab"]').click()
         await this.page.locator('a[data-test="transaction-list-empty-create-transaction-button"]').click()
         await this.page.getByText(accountName).click()

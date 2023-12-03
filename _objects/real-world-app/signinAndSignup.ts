@@ -6,6 +6,9 @@ export class SignInAndSignUpPage {
 
     constructor (page: Page) {
         this.page = page
+        var propertiesReader = require('properties-reader');
+        var properties = propertiesReader('_objects/real-world-app/real-world-app-selectors.properties');
+        console.log(`This is the property name: ${properties.get('firstName')}`)
     }
 
     /**

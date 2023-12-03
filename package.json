@@ -13,6 +13,7 @@
     "@types/node": "^20.9.3"
   },
   "dependencies": {
+    "properties-reader": "^2.3.0",
     "yarn": "^1.22.21"
   }
 }
